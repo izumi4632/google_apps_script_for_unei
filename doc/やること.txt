@@ -1,0 +1,28 @@
+▼やること
+✔GASの環境構築
+	✔claspを導入する
+		✔GASのAPI設定をオンにする
+			https://script.google.com/home/usersettings
+		✔claspをインストールする
+			npm install -g @google/clasp
+		✔claspにログインする
+			clasp login
+				エラー：clasp : このシステムではスクリプトの実行が無効になっているため、ファイルを読み込むことができません。詳細については、「about_Execution_Policies」を参照してください。
+					パワーシェルの権限確認：Set-ExecutionPolicy RemoteSigned
+						Restricted（全部制限）
+					パワーシェルの権限恒久変更：Set-ExecutionPolicy Unrestricted
+						設定ファイルをいじる権限がないとか言われる
+							管理者権限でパワーシェルを起動して権限変更ｐコマンド再実行
+			再度 clasp login
+		✔既存のGASをclaspプロジェクトとしてロード
+			clasp clone ${GASのスクリプトID}
+		✔プッシュの確認
+			clasp push
+	✔GASの環境をローカルに入れる
+		npm install @types/google-apps-script -S
+
+✔スクリプトいじる
+	✔①登録時、ゲストの権限項目の「予定を変更する」にチェックが入るようにできないか。（すべてにおいてチェックでいて問題ない）
+		event.setGuestCanModify(true);
+	✔②繰り返しフラグを立てたときに、終了日が反映されないので、反映してほしい。
+	✔③色指定ができたらうれしい。（できたらレベルの要望です。必須ではない）
